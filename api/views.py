@@ -1,11 +1,8 @@
-from urllib import response
 from django.shortcuts import render
-# from .serializers import Movie_ModelSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from tenseflow import change_tense
 from textblob import TextBlob
-
 class NounFinderAPIView(APIView):
     def get(self, request):
         response = {}
@@ -27,6 +24,7 @@ class PastTenseChangeAPIView(APIView):
     def get(self, request):
         response = {}
         sentance = request.data.get("sentance")
+        import pdb;pdb.set_trace ()
         if sentance:
             result = change_tense(sentance, "past")
             response["status_code"] = 200
